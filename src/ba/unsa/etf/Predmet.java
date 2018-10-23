@@ -32,8 +32,8 @@ public class Predmet {
         this.sifraPredmeta = sifraPredmeta;
     }
 
-    public Predmet upisi(Student s) {
-        if (velicina>=maxBrStudenata) System.out.println("Dostignut maksimalan broj studenata.");
+    public Predmet upisi(Student s) throws Exception{
+        if (velicina>=maxBrStudenata) throw new Exception("Dostignut maksimalan broj studenata");
         else {
             student[velicina] = s;
             velicina++;
@@ -43,8 +43,8 @@ public class Predmet {
 
     public Predmet ispisi(Student s){
         for(int i=0;i<velicina;i++){
-            if(s==student[i]){
-                for(int j=i; j<velicina; j++){
+            if(s.equals(student[i])){
+                for(int j=i; j<velicina-1; j++){
                     student[j]=student[j+1];
                 }
                 i=velicina;
